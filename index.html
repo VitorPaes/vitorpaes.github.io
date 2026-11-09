@@ -1,110 +1,375 @@
-<!doctype html>
-<html lang="pt-BR"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vitor Paes é engenheiro de dados em São Paulo, no Mercado Livre. Pipelines, modelagem e analytics com SQL, Python, PySpark, dbt e Google Cloud. Veja projetos e trajetória.">
-  <meta name="theme-color" content="#f7f7f2">
-  <meta name="color-scheme" content="light">
-  <meta name="author" content="Vitor Paes">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <title>Vitor Paes — Engenheiro de Dados em São Paulo</title>
-  <link rel="canonical" href="https://vitorpaes.dev/">
-  <meta property="og:type" content="profile">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Vitor Paes">
-  <meta property="og:title" content="Vitor Paes — Engenheiro de Dados">
-  <meta property="og:description" content="Pipelines, modelagem e analytics. Projetos e trajetória de um engenheiro de dados em São Paulo.">
-  <meta property="og:url" content="https://vitorpaes.dev/">
-  <meta property="og:image" content="https://vitorpaes.dev/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Vitor Paes, engenheiro de dados. Integração, transformação e modelagem de dados.">
-  <meta property="profile:first_name" content="Vitor">
-  <meta property="profile:last_name" content="Paes">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vitor Paes — Engenheiro de Dados">
-  <meta name="twitter:description" content="Pipelines, modelagem e analytics. Projetos e trajetória.">
-  <meta name="twitter:image" content="https://vitorpaes.dev/og-image.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "url": "https://vitorpaes.dev/",
-    "inLanguage": "pt-BR",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Vitor Paes",
-      "url": "https://vitorpaes.dev/",
-      "image": "https://vitorpaes.dev/vitor-paes.jpg",
-      "jobTitle": "Data Engineer",
-      "worksFor": { "@type": "Organization", "name": "Mercado Livre" },
-      "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressCountry": "BR" },
-      "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Universidade Presbiteriana Mackenzie" },
-        { "@type": "CollegeOrUniversity", "name": "Universidade Anhembi Morumbi" }
-      ],
-      "knowsAbout": ["Engenharia de dados", "Analytics engineering", "SQL", "Python", "PySpark", "dbt", "Airflow", "BigQuery", "Google Cloud", "AWS", "Modelagem dimensional", "ETL"],
-      "sameAs": ["https://www.linkedin.com/in/vitor-paes/", "https://github.com/VitorPaes"]
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<title>Vitor Paes — protótipo animado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter+Tight:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A3BC4;--deep:#0E1A4D;--pop:#F7F7F2;--hi:#A9BBFF;--white:#fff;--ink:#0E1A4D}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--white);font-family:"Inter Tight",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.cond{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* header + bottom bar */
+.top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,3vw,40px);pointer-events:none}
+.top>*{pointer-events:auto}
+.brand{font-size:26px;font-weight:750;letter-spacing:-.06em}
+.brand span{color:var(--hi)}
+.top nav{display:flex;gap:22px;align-items:center;font-size:17px;font-weight:600;letter-spacing:.02em}
+.top nav a.pill{background:var(--white);color:var(--bg);border-radius:999px;padding:8px 20px}
+.bar{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,3vw,40px) 20px;pointer-events:none}
+.bar>*{pointer-events:auto}
+.bar .who p{margin:0;line-height:1.3}
+.bar .who small{font-size:13px;opacity:.8}
+.bar .who strong{display:block;font-size:22px;letter-spacing:-.03em}
+.dots{display:flex;gap:10px}
+.dots button{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:transparent;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.dots button.on{background:var(--white);transform:scale(1.15)}
+.cta{background:var(--pop);color:var(--ink);border-radius:999px;padding:11px 30px;font-size:20px;font-weight:700;letter-spacing:.02em;transition:transform .2s}
+.cta:hover{transform:scale(1.05)}
+body.light .cta{background:var(--bg);color:#fff}body.light .bar .who,body.light .dots button{color:var(--ink);border-color:var(--ink)}
+body.light .dots button.on{background:var(--ink)}
+body.light .top{color:var(--ink)}
+body.light .top nav a.pill{background:var(--ink);color:#fff}
+
+/* scenes */
+.scene{position:relative}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden}
+
+/* 1. hero */
+#hero{height:320vh}
+#hero .label{position:absolute;top:14vh;left:0;right:0;text-align:center;font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.06em}
+#hero .name{position:absolute;top:18vh;left:0;right:0;text-align:center;font-weight:700;font-size:clamp(110px,21vw,330px);line-height:.84;letter-spacing:-.005em;will-change:transform}
+#hero .name span{display:block;will-change:transform}
+.card3d{position:absolute;left:50%;bottom:0;width:min(380px,70vw,46vh);aspect-ratio:400/470;perspective:1400px;transform:translateX(-50%)}
+.card3d .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:999px 999px 0 0;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.35)}
+.face img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.face.back{transform:rotateY(180deg);background:var(--pop);color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:0 34px 40px}
+.face.back .k{font-size:15px;font-weight:600;letter-spacing:.06em;margin:0 0 6px}
+.face.back h2{color:var(--bg);margin:0;font-size:clamp(40px,4.4vw,58px);line-height:.88;font-weight:700}
+.face.back p{margin:16px 0 0;font-size:16px;line-height:1.5}
+.face.back ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.face.back li{border:1.5px solid var(--ink);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+#hero .tag{position:absolute;left:0;right:0;top:15vh;text-align:center;font-size:clamp(34px,5vw,64px);font-weight:700;opacity:0}
+
+/* 2. layers */
+#layers{height:340vh;background:var(--deep)}
+#layers .head{position:absolute;top:13vh;left:0;right:0;text-align:center;padding:0 20px}
+#layers .head h2{margin:0;font-size:clamp(44px,6vw,80px);line-height:.95;font-weight:700}
+#layers .head p{margin:14px auto 0;max-width:520px;opacity:.8;font-size:17px;line-height:1.5}
+.stack{position:absolute;left:50%;top:67%;width:min(380px,62vw);height:min(380px,62vw);transform:translate(-50%,-50%)}
+.slab{position:absolute;inset:0;border-radius:28px;transform-origin:center;will-change:transform;display:flex;align-items:center;justify-content:center}
+.slab .face2{position:absolute;inset:0;border-radius:28px}
+.s1 .face2{background:#2B3C86;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
+.s2 .face2{background:var(--bg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.s3 .face2{background:var(--pop)}
+.slab .glyph{position:relative;font-size:clamp(28px,4vw,46px);font-weight:700;letter-spacing:.02em}
+.s3 .glyph{color:var(--ink)}
+.note{position:absolute;width:min(300px,38vw);opacity:0;will-change:transform,opacity}
+.note b{display:block;font-size:clamp(28px,3vw,40px);line-height:1;font-weight:700}
+.note span{display:block;margin-top:6px;font-size:15px;line-height:1.45;opacity:.85}
+.n1{left:6vw;top:72%}.n2{right:6vw;top:56%;text-align:right}.n3{left:6vw;top:40%}
+
+/* 3. numbers */
+#numbers{height:380vh;background:var(--deep)}
+#numbers .k{position:absolute;top:11vh;left:0;right:0;text-align:center;font-size:clamp(28px,3.4vw,44px);font-weight:700;padding:0 20px}
+.stat{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;will-change:transform,opacity}
+.ring{position:relative;width:min(360px,68vw,44vh);aspect-ratio:1;margin-top:8vh}
+.ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.ring .bgc{stroke:rgba(255,255,255,.14)}
+.ring .fg{stroke:var(--hi);stroke-linecap:round}
+.ring .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:clamp(96px,14vh,170px);line-height:.9;font-weight:700;font-variant-numeric:tabular-nums}
+.ring .val small{font-size:.2em;letter-spacing:.08em;opacity:.75;margin-top:.15em}
+.stat p{margin:26px 0 0;font-size:clamp(17px,1.6vw,21px);opacity:.85;text-align:center;max-width:420px;padding:0 20px}
+.stat .chip{display:inline-block;margin-top:14px;border:1.5px solid var(--hi);color:var(--hi);border-radius:999px;padding:6px 16px;font-size:15px;font-weight:600;opacity:0;transition:opacity .4s}
+.steps{position:absolute;bottom:130px;left:0;right:0;display:flex;justify-content:center;gap:10px}
+.steps i{width:46px;height:3px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;position:relative}
+.steps i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* 4. projects */
+#projects{padding:18vh 20px 22vh;text-align:center}
+#projects .k{font-size:20px;font-weight:600;letter-spacing:.06em;margin:0 0 6vh}
+.proj{display:block;margin:0 auto;padding:3vh 0;will-change:transform,opacity}
+.proj b{display:block;font-size:clamp(58px,9vw,132px);line-height:.9;font-weight:700}
+.proj span{display:block;margin-top:10px;font-size:16px;opacity:.85}
+.proj:hover b{color:var(--hi)}
+
+/* 5. path */
+#path{height:520vh;background:var(--bg)}
+#path .k{position:absolute;top:13vh;left:0;right:0;text-align:center;font-size:20px;font-weight:600;letter-spacing:.06em}
+.slots{position:absolute;left:clamp(20px,6vw,90px);right:clamp(20px,6vw,90px);top:50%;transform:translateY(-58%);display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,64px);align-items:end}
+.slot{overflow:hidden;--lh:clamp(84px,13vw,190px);height:var(--lh)}
+.slot .col{will-change:transform}
+.slot .col div{height:var(--lh);line-height:var(--lh);font-weight:700;font-size:var(--lh);white-space:nowrap}
+.years .col div{color:var(--hi);font-variant-numeric:tabular-nums}
+.names .col div{font-size:min(calc(var(--lh)*.74),8.4vw)}
+.role{grid-column:2;margin:0;height:28px;overflow:hidden}
+.role .col div{height:28px;line-height:28px;font-size:19px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.line{position:absolute;left:clamp(20px,6vw,90px);right:clamp(20px,6vw,90px);bottom:150px;height:2px;background:rgba(255,255,255,.2)}
+.line .fill{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.line .node{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--bg);border:2px solid rgba(255,255,255,.4);transition:background .3s,border-color .3s,transform .3s}
+.line .node.on{background:#fff;border-color:#fff;transform:scale(1.25)}
+.line .node span{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:13px;white-space:nowrap;opacity:.7}
+
+/* 6. end */
+#end{height:200vh;background:#fff;color:var(--ink)}
+#end .stick{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+#end h2{margin:0;font-size:clamp(90px,15vw,230px);line-height:.84;font-weight:700;will-change:transform}
+#end h2 i{font-style:normal;color:var(--bg)}
+.links{display:flex;gap:12px;margin-top:6vh;flex-wrap:wrap;justify-content:center}
+.links a{border:2px solid var(--ink);border-radius:999px;padding:11px 30px;font-size:21px;font-weight:700}
+.links a.main{background:var(--bg);border-color:var(--bg);color:#fff}
+
+.hint{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:14px;opacity:.8}
+
+@media (max-width:760px){
+  .top nav a:not(.pill){display:none}
+  .bar .who{display:none}
+  .stats{grid-template-columns:1fr;gap:6vh}.stats>div{border-left:0}
+  .note{width:42vw}.note span{font-size:13px}
+  .slots{grid-template-columns:1fr;gap:4px;transform:translateY(-62%)}.slot{--lh:clamp(64px,17vw,110px)}.names .col div{font-size:13vw}.role{grid-column:1}.role .col div{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  #hero,#layers,#path,#end{height:auto}
+  .stick{position:relative;height:auto;min-height:100vh}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#hero">vitor paes<span>.</span></a>
+  <nav class="cond">
+    <a href="#layers">Como trabalho</a>
+    <a class="pill" href="#projects">Projetos</a>
+    <a href="#path">Trajetória</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 1 -->
+  <section id="hero" class="scene" data-scene>
+    <div class="stick">
+      <p class="label cond">Engenheiro de dados</p>
+      <h1 class="name cond"><span class="l1">Vitor</span><span class="l2">Paes</span></h1>
+      <p class="tag cond">Dados com contexto.</p>
+      <div class="card3d" aria-hidden="false">
+        <div class="inner">
+          <div class="face front"><img src="vitor.jpg" alt="Foto de Vitor Paes"></div>
+          <div class="face back">
+            <p class="k cond">Hoje no Mercado Livre</p>
+            <h2 class="cond">Data<br>Engineer</h2>
+            <p>Integração, transformação e modelagem para conectar tecnologia e negócio.</p>
+            <ul><li>SQL</li><li>Python</li><li>PySpark</li><li>dbt</li><li>Airflow</li><li>GCP</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="layers" class="scene" data-scene>
+    <div class="stick">
+      <div class="head">
+        <h2 class="cond">Do dado bruto à decisão.</h2>
+        <p>Cada camada tem um papel. Separadas, ficam fáceis de testar, de manter e de explicar.</p>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="slab s1"><div class="face2"></div><span class="glyph cond">raw</span></div>
+        <div class="slab s2"><div class="face2"></div><span class="glyph cond">trusted</span></div>
+        <div class="slab s3"><div class="face2"></div><span class="glyph cond">analytics</span></div>
+      </div>
+      <div class="note n1"><b class="cond">Raw</b><span>Os dados como chegam das fontes, guardados sem mexer.</span></div>
+      <div class="note n2"><b class="cond">Trusted</b><span>Limpos, padronizados e testados.</span></div>
+      <div class="note n3"><b class="cond">Analytics</b><span>Modelados para responder às perguntas do negócio.</span></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="numbers" class="scene" data-scene>
+    <div class="stick">
+      <p class="k cond">E-commerce, finanças e saúde.</p>
+      <div class="stat" data-to="8"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>0</span><small>anos</small></div></div><p>trabalhando com dados, desde o estágio na Optum em 2018</p></div>
+      <div class="stat" data-to="6"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>0</span><small>empresas</small></div></div><p>de consultoria a banco, varejo, meios de pagamento e marketplace</p></div>
+      <div class="stat" data-to="mba"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>MBA</span></div></div><p>em Engenharia de Dados pela Universidade Presbiteriana Mackenzie</p><span class="chip cond">Concluído em 2026</span></div>
+      <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="projects" class="scene">
+    <p class="k cond">Projetos</p>
+    <a class="proj cond" href="#projects"><b>Potencial bancário</b><span style="font-family:'Inter Tight';text-transform:none">Projeto final do MBA · Python, BigQuery</span></a>
+    <a class="proj cond" href="#projects"><b>Pipeline analítico</b><span style="font-family:'Inter Tight';text-transform:none">Northwind · DuckDB, dbt, Streamlit</span></a>
+    <a class="proj cond" href="#projects"><b>Desafio Magalu</b><span style="font-family:'Inter Tight';text-transform:none">PySpark · modelagem dimensional</span></a>
+    <a class="proj cond" href="#projects"><b>Crédito PAN</b><span style="font-family:'Inter Tight';text-transform:none">SQL, Python · variáveis de crédito</span></a>
+  </section>
+
+  <!-- 5 -->
+  <section id="path" class="scene" data-scene>
+    <div class="stick">
+      <p class="k cond">Trajetória</p>
+      <div class="slots cond">
+        <div class="slot years"><div class="col"><div>2018</div><div>2019</div><div>2020</div><div>2022</div><div>2024</div><div>2024</div></div></div>
+        <div class="slot names"><div class="col"><div>Optum</div><div>NTT Data</div><div>Itaú</div><div>Magalu</div><div>Cielo</div><div>Mercado Livre</div></div></div>
+        <div class="role" style="font-family:'Inter Tight';text-transform:none"><div class="col"><div>Data Analytics Intern · saúde</div><div>Junior Data Engineer · consultoria</div><div>Data Engineer · banco</div><div>Analytics Engineer · varejo</div><div>Data Engineer · meios de pagamento</div><div>Data Engineer · marketplace, hoje</div></div></div>
+      </div>
+      <div class="line" aria-hidden="true"><div class="fill"></div></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="end" class="scene" data-scene>
+    <div class="stick">
+      <h2 class="cond">Vamos<br>conversar<i>.</i></h2>
+      <div class="links cond">
+        <a class="main" href="https://www.linkedin.com/in/vitor-paes/">LinkedIn</a>
+        <a href="https://github.com/VitorPaes">GitHub</a>
+        <a href="https://vitorpaes.dev/curriculo-vitor-paes.pdf">Currículo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bar">
+  <div class="who"><p><small>Mercado Livre, desde 2024</small><strong>Data Engineer</strong></p></div>
+  <div class="dots" role="tablist" aria-label="Seções">
+    <button data-go="hero" aria-label="Início"></button>
+    <button data-go="layers" aria-label="Como trabalho"></button>
+    <button data-go="projects" aria-label="Projetos"></button>
+    <button data-go="path" aria-label="Trajetória"></button>
+  </div>
+  <a class="cta cond" href="#end">Vamos conversar</a>
+</div>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const seg=(p,a,b)=>clamp((p-a)/(b-a));
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const prog=el=>{const r=el.getBoundingClientRect();const span=r.height-innerHeight;return span>0?clamp(-r.top/span):(r.top<innerHeight?1:0)};
+
+  const l1=$('#hero .l1'),l2=$('#hero .l2'),card=$('#hero .inner'),cardWrap=$('#hero .card3d'),tag=$('#hero .tag'),label=$('#hero .label');
+  const slabs=$$('.slab'),notes=[$('.n1'),$('.n2'),$('.n3')],head=$('#layers .head');
+  const endH=$('#end h2');
+  const stats=$$('.stat'),steps=$$('.steps b'),C=2*Math.PI*94;
+  stats.forEach(st=>{const f=st.querySelector('.fg');f.style.strokeDasharray=C;f.style.strokeDashoffset=C});
+  const N=6,yCol=$('.years .col'),nCol=$('.names .col'),rCol=$('.role .col'),line=$('.line'),fill=$('.line .fill');
+  const labels=['2018','2019','2020','2022','2024','hoje'];
+  for(let i=0;i<N;i++){const n=document.createElement('div');n.className='node';n.style.left=(i/(N-1)*100)+'%';n.innerHTML='<span>'+labels[i]+'</span>';line.appendChild(n)}
+  const nodes=$$('.line .node');
+  const projs=$$('.proj');
+
+  function frame(){
+    if(reduce) return;
+    // 1 hero: name splits, card turns around
+    let p=prog($('#hero'));
+    const s=ease(seg(p,0,.45));
+    l1.style.transform=`translateX(${-s*70}vw)`;
+    l2.style.transform=`translateX(${s*70}vw)`;
+    l1.style.opacity=l2.style.opacity=1-seg(p,.25,.45);
+    label.style.opacity=1-seg(p,.1,.3);
+    const lift=ease(seg(p,.05,.4));
+    const flip=ease(seg(p,.4,.8));
+    cardWrap.style.transform=`translateX(-50%) translateY(${-lift*6}vh) scale(${1+lift*.06})`;
+    card.style.transform=`rotateY(${flip*180}deg) rotateZ(${Math.sin(flip*Math.PI)*-6}deg)`;
+    tag.style.opacity=seg(p,.82,.95);
+    tag.style.transform=`translateY(${(1-seg(p,.82,.95))*30}px)`;
+
+    // 2 layers: stack explodes apart, labels arrive
+    p=prog($('#layers'));
+    head.style.opacity=1-seg(p,.75,.92);
+    const tilt=ease(seg(p,0,.25));
+    const spread=ease(seg(p,.15,.65));
+    slabs.forEach((el,i)=>{
+      const off=(1-i)*spread*min(innerHeight*.14,130);
+      el.style.transform=`translateY(${off}px) rotateX(${tilt*58}deg) rotateZ(${tilt*-38}deg)`;
+    });
+    notes.forEach((n,i)=>{
+      const t=ease(seg(p,.3+i*.12,.45+i*.12));
+      n.style.opacity=t;n.style.transform=`translateY(${(1-t)*24}px)`;
+    });
+
+    // 4 projects: the one closest to the middle lights up
+    const mid=innerHeight/2;
+    projs.forEach(el=>{
+      const r=el.getBoundingClientRect();const d=Math.abs(r.top+r.height/2-mid)/mid;
+      const t=clamp(1-d);
+      el.style.opacity=.25+t*.75;el.style.transform=`scale(${.9+t*.1})`;
+    });
+
+    // 3 numbers: one stat per third, ring and value scrubbed by scroll
+    p=prog($('#numbers'));
+    stats.forEach((st,i)=>{
+      const a=i/3,b=(i+1)/3,local=seg(p,a,b);
+      const fadeIn=seg(p,a-.04,a+.06),fadeOut=i<2?1-seg(p,b-.06,b+.02):1;
+      const vis=Math.min(fadeIn,fadeOut);
+      st.style.opacity=vis;
+      st.style.transform=`translateY(${(1-fadeIn)*60-(1-fadeOut)*60}px) scale(${.92+vis*.08})`;
+      const k=ease(seg(local,.05,.75));
+      st.querySelector('.fg').style.strokeDashoffset=C*(1-k);
+      const to=st.dataset.to;
+      if(to!=='mba') st.querySelector('.val span').textContent=Math.round(k*(+to));
+      else st.querySelector('.chip').style.opacity=k>.98?1:0;
+      steps[i].style.transform=`scaleX(${local})`;
+    });
+
+    // 5 path: slot-machine years and names, timeline draws
+    p=prog($('#path'));
+    const f=seg(p,.04,.96)*(N-1),fi=Math.min(Math.floor(f),N-2),ft=f-fi;
+    const pos=f>=N-1?N-1:fi+ease(seg(ft,.55,1));
+    const lh=$('.years .col div').offsetHeight,rh=$('.role .col div').offsetHeight;
+    yCol.style.transform=`translateY(${-pos*lh}px)`;
+    nCol.style.transform=`translateY(${-pos*lh}px)`;
+    rCol.style.transform=`translateY(${-pos*rh}px)`;
+    fill.style.transform=`scaleX(${pos/(N-1)})`;
+    nodes.forEach((n,i)=>n.classList.toggle('on',pos>=i-.5));
+
+    // 6 end: headline grows in
+    p=prog($('#end'));
+    endH.style.transform=`scale(${.55+ease(seg(p,0,.6))*.45})`;
   }
-  </script>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=personal-6">
-  <script src="./script.js?v=personal-6" defer></script>
-</head><body>
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="header shell"><a class="brand" href="#inicio" aria-label="Vitor Paes, início">vitor paes<span>.</span></a><nav aria-label="Navegação principal"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#experiencia">Trajetória</a><a href="#contato">Contato</a></nav><a class="cv-link" href="./curriculo-vitor-paes.pdf?v=2" download>Currículo <span>↓ PDF</span></a></header>
-<main id="conteudo"><section class="cover shell" id="inicio" aria-labelledby="nome"><div class="cover-meta"><span>ENGENHARIA DE DADOS & ANALYTICS</span><span>SÃO PAULO, BRASIL</span></div><div class="cover-grid"><div class="cover-title"><h1 id="nome"><span class="hello">Olá, sou o Vitor Paes, engenheiro de dados.</span><span class="headline">Dados com<br><span>contexto.</span></span></h1><p class="intro">Sou engenheiro de dados. Trabalho com integração, transformação e modelagem para conectar tecnologia e negócio.</p><a class="cover-action" href="#projetos">Explore meu trabalho <span aria-hidden="true">↓</span></a></div><figure class="portrait"><picture><source srcset="./vitor-paes.webp?v=2" type="image/webp"><img src="./vitor-paes.jpg?v=2" width="920" height="920" alt="Foto de Vitor Paes, engenheiro de dados, sorrindo, de camisa clara" fetchpriority="high" decoding="async"></picture><figcaption><span>Vitor Paes</span><span>Data Engineer</span></figcaption></figure></div><div class="cover-bottom"><p><span>ATUALMENTE</span>Mercado Livre <small>desde 2024</small></p><p class="cover-note">SQL, Python e uma visão<br>além da transformação do dado.</p></div></section>
-<section class="projects-section" id="projetos" aria-labelledby="projects-title"><div class="shell"><div class="section-heading"><p class="section-index">01 / PROJETOS</p><div><h2 id="projects-title">Da ideia<br>à implementação<span>.</span></h2><p>Quatro trabalhos em engenharia de dados e analytics.</p></div></div><div class="projects"><details class="project featured" id="projeto-ipb"><summary><span class="project-number">01</span><div class="project-heading"><span class="project-category">IPB · Projeto final do MBA</span><h3>Onde há potencial bancário?</h3><p>Integração de dados públicos para investigar oportunidades de expansão bancária nos municípios brasileiros.</p><ul class="tags" aria-label="Tecnologias"><li>Python</li><li>Pandas</li><li>BigQuery</li><li>Google Cloud Storage</li></ul></div><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-body"><div class="project-brief"><div><h4>O problema</h4><p>Como combinar capacidade econômica, adoção digital e presença bancária para comparar oportunidades entre municípios?</p></div><div><h4>A entrega</h4><p>Pipeline em camadas raw, trusted e analytics, análise exploratória e três versões do Índice de Potencial Bancário (IPB).</p></div></div><div class="project-flow"><h4>Fluxo de dados</h4><ol><li><span>01</span><div><strong>Fontes públicas</strong><p>IBGE · BCB · Anatel</p></div></li><li><span>02</span><div><strong>Ingestão e tratamento</strong><p>Python · raw / trusted</p></div></li><li><span>03</span><div><strong>Índice e análise</strong><p>BigQuery · analytics</p></div></li></ol></div><dl class="project-decisions"><div><dt>Integração</dt><dd>Padronização por código IBGE e consolidação dos indicadores municipais.</dd></div><div><dt>Qualidade</dt><dd>Testes de dados e análise de valores ausentes, outliers e correlações.</dd></div><div><dt>Comparação</dt><dd>Três formulações do índice para estudar a sensibilidade dos rankings.</dd></div></dl><p class="project-context">Projeto final do MBA em Engenharia de Dados, desenvolvido em equipe com Hermes Augusto, Lúcio Franchi Cruz e Nathalia Miranda.</p><div class="source-links"><a class="project-repo" href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/docs/Arquitetura_Tecnica.md" target="_blank" rel="noopener noreferrer">Arquitetura ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/docs/Relatorio_EDA.md" target="_blank" rel="noopener noreferrer">Análise exploratória ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/src/analytics/ipb.py" target="_blank" rel="noopener noreferrer">Cálculo do índice ↗</a></div></div></details><details class="project " id="projeto-northwind"><summary><span class="project-number">02</span><div class="project-heading"><span class="project-category">Pipeline analítico local</span><h3>Uma plataforma de dados, do início ao fim.</h3><p>Dados de vendas e logística organizados em uma plataforma analítica com modelagem, testes e auditoria.</p><ul class="tags" aria-label="Tecnologias"><li>DuckDB</li><li>dbt</li><li>MinIO</li><li>Streamlit</li><li>Docker</li></ul></div><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-body"><div class="project-brief"><div><h4>O problema</h4><p>Como transformar arquivos de pedidos e itens em uma base consistente para analisar vendas e logística?</p></div><div><h4>A entrega</h4><p>Modelos dimensionais no DuckDB, verificações com dbt, reconciliação de registros e dashboard em Streamlit.</p></div></div><div class="project-flow"><h4>Fluxo de dados</h4><ol><li><span>01</span><div><strong>Ingestão</strong><p>CSV · MinIO</p></div></li><li><span>02</span><div><strong>Modelagem e testes</strong><p>dbt · DuckDB</p></div></li><li><span>03</span><div><strong>Consumo</strong><p>Streamlit</p></div></li></ol></div><dl class="project-decisions"><div><dt>Modelagem</dt><dd>Camadas staging, intermediate e marts, com dimensões e fato de itens de pedidos.</dd></div><div><dt>Integridade</dt><dd>Testes de unicidade, preenchimento e relacionamento entre fato e dimensões.</dd></div><div><dt>Operação</dt><dd>Script de execução por etapas, logs e auditoria de contagem de registros.</dd></div></dl><p class="project-context">A arquitetura concentra armazenamento e processamento no ambiente local. O repositório reúne código, documentação de requisitos e planos de teste.</p><div class="source-links"><a class="project-repo" href="https://github.com/VitorPaes/sre-herluvina" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/documents/03_architecture.md" target="_blank" rel="noopener noreferrer">Arquitetura ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/transform/models/marts/schema.yml" target="_blank" rel="noopener noreferrer">Modelos e testes ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/bin/run-pipeline.sh" target="_blank" rel="noopener noreferrer">Execução do pipeline ↗</a></div></div></details><details class="project " id="projeto-magalu"><summary><span class="project-number">03</span><div class="project-heading"><span class="project-category">Desafio Magalu · PySpark</span><h3>Vendas, comissões e modelagem.</h3><p>Transformação de dados de e-commerce em dimensões, fatos e análises de vendas por parceiro.</p><ul class="tags" aria-label="Tecnologias"><li>PySpark</li><li>Python</li><li>Star schema</li><li>Jupyter</li></ul></div><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-body"><div class="project-brief"><div><h4>O problema</h4><p>Como organizar pedidos, produtos e parceiros para calcular comissões e comparar o desempenho mensal?</p></div><div><h4>A entrega</h4><p>Notebook PySpark com modelo dimensional, agregações mensais, regras de comissão e rankings por parceiro.</p></div></div><div class="project-flow"><h4>Fluxo de dados</h4><ol><li><span>01</span><div><strong>Origem</strong><p>Tabelas CSV</p></div></li><li><span>02</span><div><strong>Transformação</strong><p>Joins · dimensões · fato</p></div></li><li><span>03</span><div><strong>Análise</strong><p>Comissões · rankings</p></div></li></ol></div><dl class="project-decisions"><div><dt>Modelagem</dt><dd>Construção de dimensões de localização, produto, parceiro e cliente, além da fato de pedidos.</dd></div><div><dt>Regras de negócio</dt><dd>Agregações de vendas e aplicação das regras de bônus e comissão do desafio.</dd></div><div><dt>Análise temporal</dt><dd>Window functions para identificar os três maiores parceiros em cada mês.</dd></div></dl><p class="project-context">Solução desenvolvida em notebook para um desafio de Analytics Engineering. O código documenta as transformações e as regras aplicadas aos dados do exercício.</p><div class="source-links"><a class="project-repo" href="https://github.com/VitorPaes/desafio_magalu" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a><a href="https://github.com/VitorPaes/desafio_magalu/blob/main/Dessafio_Magalu.ipynb" target="_blank" rel="noopener noreferrer">Notebook PySpark ↗</a></div></div></details><details class="project " id="projeto-credito"><summary><span class="project-number">04</span><div class="project-heading"><span class="project-category">Desafio PAN · SCR</span><h3>Crédito em uma base analítica.</h3><p>Preparação de variáveis de crédito a partir de modalidades, vencimentos e faixas de atraso.</p><ul class="tags" aria-label="Tecnologias"><li>SQL</li><li>Python</li><li>SQLite</li><li>Pandas</li></ul></div><span class="project-toggle" aria-hidden="true">+</span></summary><div class="project-body"><div class="project-brief"><div><h4>O problema</h4><p>Como reorganizar dados no formato SCR para facilitar análises e a construção de variáveis de crédito?</p></div><div><h4>A entrega</h4><p>Base analítica book_scr, com agregações por modalidade, faixas acumuladas e exportação em CSV.</p></div></div><div class="project-flow"><h4>Fluxo de dados</h4><ol><li><span>01</span><div><strong>Base de entrada</strong><p>SCR · modalidades</p></div></li><li><span>02</span><div><strong>Preparação</strong><p>SQL · faixas de crédito</p></div></li><li><span>03</span><div><strong>Saída</strong><p>Book analítico · CSV</p></div></li></ol></div><dl class="project-decisions"><div><dt>Transformação</dt><dd>Junção de modalidades e geração de expressões SQL para agregações de crédito.</dd></div><div><dt>Variáveis</dt><dd>Saldos a vencer e vencidos organizados em faixas e janelas acumuladas.</dd></div><div><dt>Exploração</dt><dd>Consultas e gráficos para analisar a distribuição das modalidades de crédito.</dd></div></dl><p class="project-context">O foco do desafio é a preparação de dados e variáveis para análise de crédito, com consultas exploratórias e exportação da base resultante.</p><div class="source-links"><a class="project-repo" href="https://github.com/VitorPaes/desafio_pan" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a><a href="https://github.com/VitorPaes/desafio_pan/blob/main/main.ipynb" target="_blank" rel="noopener noreferrer">Notebook principal ↗</a><a href="https://github.com/VitorPaes/desafio_pan/tree/main/sql/assets" target="_blank" rel="noopener noreferrer">Transformações SQL ↗</a></div></div></details></div><div class="more-work"><p>Também por aqui: um projeto de integração e entrega contínuas.</p><a href="https://github.com/VitorPaes/pipeline-cicd" target="_blank" rel="noopener noreferrer">Pipeline CI/CD ↗</a></div></div></section>
-<section class="about-section shell" id="sobre" aria-labelledby="about-title"><div class="section-heading"><p class="section-index">02 / SOBRE</p><div><h2 id="about-title">Técnica encontra<br>contexto<span>.</span></h2></div></div><div class="about-grid"><p class="about-statement">E-commerce.<br>Finanças.<br>Saúde.</p><div><div class="about-copy">
-        <p class="lead">Sou engenheiro de dados com uma trajetória que reúne e-commerce, serviços financeiros e saúde.</p>
-        <p>Trabalho com pipelines, integração, transformação e modelagem de dados. Ao longo dessa jornada, passei por Mercado Livre, Cielo, Magazine Luiza, Itaú, NTT DATA e Optum.</p>
-        <p>Sou bacharel em Sistemas de Informação e concluí o MBA em Engenharia de Dados na Universidade Presbiteriana Mackenzie.</p>
-      </div></div></div><div class="skills" aria-label="Tecnologias e áreas de atuação">
-        <div class="skill-group"><h3>Linguagens &amp; processamento</h3><p>SQL <span>/</span> Python <span>/</span> PySpark</p></div>
-        <div class="skill-group"><h3>Pipelines &amp; modelagem</h3><p>Airflow <span>/</span> dbt <span>/</span> ETL</p></div>
-        <div class="skill-group"><h3>Cloud &amp; dados</h3><p>Google Cloud <span>/</span> AWS <span>/</span> BigQuery</p></div>
-        <div class="skill-group"><h3>Versionamento &amp; entrega</h3><p>Git <span>/</span> GitHub Actions <span>/</span> CI/CD</p></div>
-      </div></section>
-<section class="career-section" id="experiencia" aria-labelledby="career-title"><div class="shell"><div class="section-heading"><p class="section-index">03 / TRAJETÓRIA</p><div><h2 id="career-title">Caminhos que<br>se conectam<span>.</span></h2></div></div><ol class="timeline">
-          <li class="experience-item current">
-            <div class="experience-top"><h3>Mercado Livre</h3><span class="current-label">Atual</span></div>
-            <p class="job-role">Data Engineer</p>
-            <p class="job-description">Engenharia de dados no ecossistema de e-commerce do Mercado Livre.</p>
-            <p class="job-date"><time datetime="2024-08">Ago. 2024</time> — presente</p>
-          </li>
-          <li class="experience-item">
-            <h3>Cielo</h3><p class="job-role">Data Engineer</p>
-            <p class="job-description">Atuação em engenharia de dados no setor de meios de pagamento.</p>
-            <p class="job-date"><time datetime="2024-01">Jan. 2024</time> — <time datetime="2024-08">ago. 2024</time></p>
-          </li>
-          <li class="experience-item">
-            <h3>Magazine Luiza</h3><p class="job-role">Analytics Engineer</p>
-            <p class="job-description">ETL e pipelines de dados em Google Cloud no projeto Magalu Ads.</p>
-            <p class="job-date"><time datetime="2022-05">Mai. 2022</time> — <time datetime="2024-01">jan. 2024</time></p>
-          </li>
-          <li class="experience-item">
-            <h3>Itaú Unibanco</h3><p class="job-role">Data Engineer</p>
-            <p class="job-description">Desenvolvimento de processos ETL e soluções serverless na AWS.</p>
-            <p class="job-date"><time datetime="2020">2020</time> — <time datetime="2022">2022</time></p>
-          </li>
-          <li class="experience-item">
-            <h3>NTT DATA <span class="company-note">/ everis</span></h3><p class="job-role">Junior Data Engineer</p>
-            <p class="job-description">Projetos de dados com PySpark, Hive e Tableau.</p>
-            <p class="job-date"><time datetime="2019">2019</time> — <time datetime="2020">2020</time></p>
-          </li>
-          <li class="experience-item">
-            <h3>Optum</h3><p class="job-role">Data Analytics Intern</p>
-            <p class="job-description">Análise de dados, SQL e processos ETL no setor de saúde.</p>
-            <p class="job-date"><time datetime="2018">2018</time> — <time datetime="2019">2019</time></p>
-          </li>
-        </ol><div class="education-section" id="formacao"><div class="education-heading"><p class="section-index">FORMAÇÃO</p><h3>Continuar aprendendo.</h3></div><div class="education-list">
-          <article class="education"><div class="education-meta"><span>Pós-graduação</span><span>2025 — 2026 · Concluído</span></div><h3>MBA em Engenharia de Dados</h3><p>Universidade Presbiteriana Mackenzie</p></article>
-          <article class="education"><div class="education-meta"><span>Graduação</span><span>2017 — 2020</span></div><h3>Bacharelado em Sistemas de Informação</h3><p>Universidade Anhembi Morumbi</p></article>
-        </div></div></div></section>
-<section class="contact-section" id="contato" aria-labelledby="contact-title"><div class="shell"><p class="section-index">04 / CONTATO</p><div class="contact-grid"><h2 id="contact-title">Vamos trocar<br>uma ideia<span>?</span></h2><div><p>Sobre dados, tecnologia<br>ou o próximo projeto.</p><a href="https://www.linkedin.com/in/vitor-paes/" target="_blank" rel="noopener noreferrer">Me encontre no LinkedIn ↗</a><a href="https://github.com/VitorPaes" target="_blank" rel="noopener noreferrer">Veja meu GitHub ↗</a><a href="./curriculo-vitor-paes.pdf?v=2" download>Baixar currículo ↓</a></div></div></div></section></main><footer class="footer shell"><a class="brand" href="#inicio">vitor paes<span>.</span></a><p>São Paulo · Brasil</p><a href="#inicio">Voltar ao início ↑</a></footer></body></html>
+  function min(a,b){return Math.min(a,b)}
+
+  // dots + light mode
+  const ids=['hero','layers','projects','path'];
+  const dots=$$('.dots button');
+  function ui(){
+    let cur=0;ids.forEach((id,i)=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<innerHeight*.5)cur=i});
+    dots.forEach((d,i)=>d.classList.toggle('on',i===cur));
+    const er=$('#end').getBoundingClientRect();document.body.classList.toggle('light',er.top<innerHeight*.6);
+  }
+  dots.forEach(d=>d.addEventListener('click',()=>document.getElementById(d.dataset.go).scrollIntoView({behavior:reduce?'auto':'smooth'})));
+
+  let queued=false;
+  function onScroll(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;frame();ui()})}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
+  onScroll();
+
+  // reveals + counters
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+    const c=e.target.querySelector('[data-count]');
+    if(c){const to=+c.dataset.count;if(reduce){c.textContent=to;return}
+      const t0=performance.now();const step=t=>{const k=clamp((t-t0)/1200);c.textContent=Math.round(ease(k)*to);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+  }),{threshold:.35});
+  $$('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
