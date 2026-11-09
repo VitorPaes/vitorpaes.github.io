@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="./favicon.svg" type="image/svg+xml">
-<title>Vitor Paes — protótipo animado</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vitor Paes é engenheiro de dados em São Paulo, no Mercado Livre. Pipelines, modelagem e analytics com SQL, Python, PySpark, dbt e Google Cloud. Veja projetos e trajetória.">
+  <meta name="theme-color" content="#1A3BC4">
+  
+  <meta name="author" content="Vitor Paes">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vitor Paes — Engenheiro de Dados em São Paulo</title>
+  <link rel="canonical" href="https://vitorpaes.dev/">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Vitor Paes">
+  <meta property="og:title" content="Vitor Paes — Engenheiro de Dados">
+  <meta property="og:description" content="Pipelines, modelagem e analytics. Projetos e trajetória de um engenheiro de dados em São Paulo.">
+  <meta property="og:url" content="https://vitorpaes.dev/">
+  <meta property="og:image" content="https://vitorpaes.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vitor Paes, engenheiro de dados. Integração, transformação e modelagem de dados.">
+  <meta property="profile:first_name" content="Vitor">
+  <meta property="profile:last_name" content="Paes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vitor Paes — Engenheiro de Dados">
+  <meta name="twitter:description" content="Pipelines, modelagem e analytics. Projetos e trajetória.">
+  <meta name="twitter:image" content="https://vitorpaes.dev/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://vitorpaes.dev/",
+    "inLanguage": "pt-BR",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Vitor Paes",
+      "url": "https://vitorpaes.dev/",
+      "image": "https://vitorpaes.dev/vitor-paes.jpg",
+      "jobTitle": "Data Engineer",
+      "worksFor": { "@type": "Organization", "name": "Mercado Livre" },
+      "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressCountry": "BR" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Universidade Presbiteriana Mackenzie" },
+        { "@type": "CollegeOrUniversity", "name": "Universidade Anhembi Morumbi" }
+      ],
+      "knowsAbout": ["Engenharia de dados", "Analytics engineering", "SQL", "Python", "PySpark", "dbt", "Airflow", "BigQuery", "Google Cloud", "AWS", "Modelagem dimensional", "ETL"],
+      "sameAs": ["https://www.linkedin.com/in/vitor-paes/", "https://github.com/VitorPaes"]
+    }
+  }
+  </script>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter+Tight:wght@400..800&display=swap" rel="stylesheet">
@@ -21,6 +68,7 @@ a{color:inherit;text-decoration:none}
 /* header + bottom bar */
 .top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,3vw,40px);pointer-events:none}
 .top>*{pointer-events:auto}
+.top{transition:background .3s,backdrop-filter .3s}.top.solid{background:rgba(14,26,77,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}body.light .top.solid{background:rgba(255,255,255,.88)}
 .brand{font-size:26px;font-weight:750;letter-spacing:-.06em}
 .brand span{color:var(--hi)}
 .top nav{display:flex;gap:22px;align-items:center;font-size:17px;font-weight:600;letter-spacing:.02em}
@@ -101,10 +149,36 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 /* 4. projects */
 #projects{padding:18vh 20px 22vh;text-align:center}
 #projects .k{font-size:20px;font-weight:600;letter-spacing:.06em;margin:0 0 6vh}
-.proj{display:block;margin:0 auto;padding:3vh 0;will-change:transform,opacity}
-.proj b{display:block;font-size:clamp(58px,9vw,132px);line-height:.9;font-weight:700}
-.proj span{display:block;margin-top:10px;font-size:16px;opacity:.85}
-.proj:hover b{color:var(--hi)}
+.proj{max-width:980px;margin:0 auto;border-top:1px solid rgba(255,255,255,.18);will-change:transform,opacity}
+.proj:last-of-type{border-bottom:1px solid rgba(255,255,255,.18)}
+.proj-head{all:unset;box-sizing:border-box;display:block;width:100%;padding:4vh 56px;cursor:pointer;position:relative;text-align:center}
+.proj-head:focus-visible{outline:3px solid var(--hi);outline-offset:4px;border-radius:12px}
+.proj-head b{display:block;font-size:clamp(52px,8.5vw,124px);line-height:.9;font-weight:700;transition:color .25s}
+.proj-head span{display:block;margin-top:10px;font-size:16px;opacity:.85}
+.proj-head i{position:absolute;right:8px;top:50%;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:2px solid rgba(255,255,255,.6);font-style:normal;font-size:26px;line-height:40px;transition:transform .35s,background .25s,color .25s}
+.proj-head:hover b{color:var(--hi)}
+.proj.open .proj-head i{transform:rotate(45deg);background:#fff;color:var(--bg)}
+.proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1)}
+.proj.open .proj-body{grid-template-rows:1fr}
+.proj-in{overflow:hidden;text-align:left}
+.proj-in>*{opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s}
+.proj.open .proj-in>*{opacity:1;transform:none}
+.proj.open .proj-in>*:nth-child(2){transition-delay:.08s}.proj.open .proj-in>*:nth-child(3){transition-delay:.14s}.proj.open .proj-in>*:nth-child(4){transition-delay:.2s}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:8px 8px 0}
+.pgrid h3{margin:0 0 8px;font-size:22px;font-weight:700;color:var(--hi);letter-spacing:.03em}
+.pgrid p{margin:0;font-size:17px;line-height:1.55}
+.flow{list-style:none;margin:28px 8px 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:f}
+.flow li{background:rgba(255,255,255,.08);border-radius:18px;padding:18px 20px;position:relative}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);opacity:.6}
+.flow b{display:block;font-size:15px;color:var(--hi)}
+.flow strong{display:block;margin-top:4px;font-size:17px}
+.flow span{display:block;margin-top:2px;font-size:14px;opacity:.8}
+.pnote{margin:20px 8px 0;font-size:15px;opacity:.8;line-height:1.5}
+.plinks{display:flex;flex-wrap:wrap;gap:10px;margin:22px 8px 4vh}
+.plinks a{border:2px solid rgba(255,255,255,.7);border-radius:999px;padding:9px 20px;font-size:18px;font-weight:700;transition:background .2s,color .2s}
+.plinks a:hover,.plinks a.main{background:#fff;color:var(--bg);border-color:#fff}
+.more{margin:6vh 0 0;font-size:16px;opacity:.9}.more a{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.pgrid,.flow{grid-template-columns:1fr}.flow li:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-14px;transform:translateX(50%)}.proj-head{padding:3vh 48px 3vh 0;text-align:left}.proj-head i{right:0}}
 
 /* 5. path */
 #path{height:520vh;background:var(--bg)}
@@ -181,7 +255,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
       <p class="tag cond">Dados com contexto.</p>
       <div class="card3d" aria-hidden="false">
         <div class="inner">
-          <div class="face front"><img src="vitor.jpg" alt="Foto de Vitor Paes"></div>
+          <div class="face front"><img src="./vitor-paes.jpg?v=2" width="920" height="920" fetchpriority="high" alt="Foto de Vitor Paes"></div>
           <div class="face back">
             <p class="k cond">Hoje no Mercado Livre</p>
             <h2 class="cond">Data<br>Engineer</h2>
@@ -225,10 +299,51 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   <!-- 4 -->
   <section id="projects" class="scene">
     <p class="k cond">Projetos</p>
-    <a class="proj cond" href="#projects"><b>Potencial bancário</b><span style="font-family:'Inter Tight';text-transform:none">Projeto final do MBA · Python, BigQuery</span></a>
-    <a class="proj cond" href="#projects"><b>Pipeline analítico</b><span style="font-family:'Inter Tight';text-transform:none">Northwind · DuckDB, dbt, Streamlit</span></a>
-    <a class="proj cond" href="#projects"><b>Desafio Magalu</b><span style="font-family:'Inter Tight';text-transform:none">PySpark · modelagem dimensional</span></a>
-    <a class="proj cond" href="#projects"><b>Crédito PAN</b><span style="font-family:'Inter Tight';text-transform:none">SQL, Python · variáveis de crédito</span></a>
+    <article class="proj">
+      <button class="proj-head" aria-expanded="false" aria-controls="pd1">
+        <b class="cond">Potencial bancário</b><span>Projeto final do MBA · Python, BigQuery</span><i aria-hidden="true">+</i>
+      </button>
+      <div class="proj-body" id="pd1"><div class="proj-in">
+        <div class="pgrid"><div><h3 class="cond">O problema</h3><p>Como combinar capacidade econômica, adoção digital e presença bancária para comparar oportunidades entre municípios?</p></div><div><h3 class="cond">A entrega</h3><p>Pipeline em camadas raw, trusted e analytics, análise exploratória e três versões do Índice de Potencial Bancário (IPB).</p></div></div>
+        <ol class="flow"><li><b class="cond">01</b><strong>Fontes públicas</strong><span>IBGE · BCB · Anatel</span></li><li><b class="cond">02</b><strong>Ingestão e tratamento</strong><span>Python · raw / trusted</span></li><li><b class="cond">03</b><strong>Índice e análise</strong><span>BigQuery · analytics</span></li></ol>
+        <p class="pnote">Desenvolvido em equipe com Hermes Augusto, Lúcio Franchi Cruz e Nathalia Miranda.</p>
+        <div class="plinks cond"><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602" target="_blank" rel="noopener" class="main">Ver repositório ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/docs/Arquitetura_Tecnica.md" target="_blank" rel="noopener">Arquitetura ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/docs/Relatorio_EDA.md" target="_blank" rel="noopener">Análise exploratória ↗</a><a href="https://github.com/LucioFrCruz/heluvina_projeto_final_202602/blob/main/src/analytics/ipb.py" target="_blank" rel="noopener">Cálculo do índice ↗</a></div>
+      </div></div>
+    </article>
+    <article class="proj">
+      <button class="proj-head" aria-expanded="false" aria-controls="pd2">
+        <b class="cond">Pipeline analítico</b><span>Northwind · DuckDB, dbt, Streamlit</span><i aria-hidden="true">+</i>
+      </button>
+      <div class="proj-body" id="pd2"><div class="proj-in">
+        <div class="pgrid"><div><h3 class="cond">O problema</h3><p>Como transformar arquivos de pedidos e itens em uma base consistente para analisar vendas e logística?</p></div><div><h3 class="cond">A entrega</h3><p>Modelos dimensionais no DuckDB, verificações com dbt, reconciliação de registros e dashboard em Streamlit.</p></div></div>
+        <ol class="flow"><li><b class="cond">01</b><strong>Ingestão</strong><span>CSV · MinIO</span></li><li><b class="cond">02</b><strong>Modelagem e testes</strong><span>dbt · DuckDB</span></li><li><b class="cond">03</b><strong>Consumo</strong><span>Streamlit</span></li></ol>
+        <p class="pnote">Armazenamento e processamento no ambiente local, com documentação de requisitos e planos de teste.</p>
+        <div class="plinks cond"><a href="https://github.com/VitorPaes/sre-herluvina" target="_blank" rel="noopener" class="main">Ver repositório ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/documents/03_architecture.md" target="_blank" rel="noopener">Arquitetura ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/transform/models/marts/schema.yml" target="_blank" rel="noopener">Modelos e testes ↗</a><a href="https://github.com/VitorPaes/sre-herluvina/blob/master/bin/run-pipeline.sh" target="_blank" rel="noopener">Execução do pipeline ↗</a></div>
+      </div></div>
+    </article>
+    <article class="proj">
+      <button class="proj-head" aria-expanded="false" aria-controls="pd3">
+        <b class="cond">Desafio Magalu</b><span>PySpark · modelagem dimensional</span><i aria-hidden="true">+</i>
+      </button>
+      <div class="proj-body" id="pd3"><div class="proj-in">
+        <div class="pgrid"><div><h3 class="cond">O problema</h3><p>Como organizar pedidos, produtos e parceiros para calcular comissões e comparar o desempenho mensal?</p></div><div><h3 class="cond">A entrega</h3><p>Notebook PySpark com modelo dimensional, agregações mensais, regras de comissão e rankings por parceiro.</p></div></div>
+        <ol class="flow"><li><b class="cond">01</b><strong>Origem</strong><span>Tabelas CSV</span></li><li><b class="cond">02</b><strong>Transformação</strong><span>Joins · dimensões · fato</span></li><li><b class="cond">03</b><strong>Análise</strong><span>Comissões · rankings</span></li></ol>
+        <p class="pnote">Solução para um desafio de Analytics Engineering, com as transformações e regras documentadas no notebook.</p>
+        <div class="plinks cond"><a href="https://github.com/VitorPaes/desafio_magalu" target="_blank" rel="noopener" class="main">Ver repositório ↗</a><a href="https://github.com/VitorPaes/desafio_magalu/blob/main/Dessafio_Magalu.ipynb" target="_blank" rel="noopener">Notebook PySpark ↗</a></div>
+      </div></div>
+    </article>
+    <article class="proj">
+      <button class="proj-head" aria-expanded="false" aria-controls="pd4">
+        <b class="cond">Crédito PAN</b><span>SQL, Python · variáveis de crédito</span><i aria-hidden="true">+</i>
+      </button>
+      <div class="proj-body" id="pd4"><div class="proj-in">
+        <div class="pgrid"><div><h3 class="cond">O problema</h3><p>Como reorganizar dados no formato SCR para facilitar análises e a construção de variáveis de crédito?</p></div><div><h3 class="cond">A entrega</h3><p>Base analítica book_scr, com agregações por modalidade, faixas acumuladas e exportação em CSV.</p></div></div>
+        <ol class="flow"><li><b class="cond">01</b><strong>Base de entrada</strong><span>SCR · modalidades</span></li><li><b class="cond">02</b><strong>Preparação</strong><span>SQL · faixas de crédito</span></li><li><b class="cond">03</b><strong>Saída</strong><span>Book analítico · CSV</span></li></ol>
+        <p class="pnote">Foco na preparação de dados e variáveis para análise de crédito, com consultas exploratórias.</p>
+        <div class="plinks cond"><a href="https://github.com/VitorPaes/desafio_pan" target="_blank" rel="noopener" class="main">Ver repositório ↗</a><a href="https://github.com/VitorPaes/desafio_pan/blob/main/main.ipynb" target="_blank" rel="noopener">Notebook principal ↗</a><a href="https://github.com/VitorPaes/desafio_pan/tree/main/sql/assets" target="_blank" rel="noopener">Transformações SQL ↗</a></div>
+      </div></div>
+    </article>
+    <p class="more">Também por aqui: <a href="https://github.com/VitorPaes/pipeline-cicd" target="_blank" rel="noopener">Pipeline CI/CD ↗</a></p>
   </section>
 
   <!-- 5 -->
@@ -251,7 +366,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
       <div class="links cond">
         <a class="main" href="https://www.linkedin.com/in/vitor-paes/">LinkedIn</a>
         <a href="https://github.com/VitorPaes">GitHub</a>
-        <a href="https://vitorpaes.dev/curriculo-vitor-paes.pdf">Currículo</a>
+        <a href="./curriculo-vitor-paes.pdf?v=2">Currículo</a>
       </div>
     </div>
   </section>
@@ -321,9 +436,10 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
     // 4 projects: the one closest to the middle lights up
     const mid=innerHeight/2;
     projs.forEach(el=>{
-      const r=el.getBoundingClientRect();const d=Math.abs(r.top+r.height/2-mid)/mid;
+      if(el.classList.contains('open')){el.style.opacity=1;el.style.transform='none';return}
+      const r=el.querySelector('.proj-head').getBoundingClientRect();const d=Math.abs(r.top+r.height/2-mid)/mid;
       const t=clamp(1-d);
-      el.style.opacity=.25+t*.75;el.style.transform=`scale(${.9+t*.1})`;
+      el.style.opacity=.3+t*.7;el.style.transform=`scale(${.92+t*.08})`;
     });
 
     // 3 numbers: one stat per third, ring and value scrubbed by scroll
@@ -365,9 +481,14 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   function ui(){
     let cur=0;ids.forEach((id,i)=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<innerHeight*.5)cur=i});
     dots.forEach((d,i)=>d.classList.toggle('on',i===cur));
+    $('.top').classList.toggle('solid',scrollY>innerHeight*.6);
     const er=$('#end').getBoundingClientRect();document.body.classList.toggle('light',er.top<innerHeight*.6);
   }
   dots.forEach(d=>d.addEventListener('click',()=>document.getElementById(d.dataset.go).scrollIntoView({behavior:reduce?'auto':'smooth'})));
+
+
+  // project panels
+  projs.forEach(el=>{const b=el.querySelector('.proj-head');b.addEventListener('click',()=>{const o=el.classList.toggle('open');b.setAttribute('aria-expanded',o);onScroll()})});
 
   let queued=false;
   function onScroll(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;frame();ui()})}
