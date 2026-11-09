@@ -47,7 +47,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 /* 1. hero */
 #hero{height:320vh}
 #hero .label{position:absolute;top:14vh;left:0;right:0;text-align:center;font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.06em}
-#hero .name{position:absolute;top:18vh;left:0;right:0;text-align:center;font-weight:700;font-size:clamp(110px,21vw,330px);line-height:.84;letter-spacing:-.005em;will-change:transform}
+#hero .name{position:absolute;top:15vh;left:0;right:0;text-align:center;font-weight:700;font-size:clamp(110px,21vw,330px);line-height:.84;letter-spacing:-.005em;will-change:transform}
 #hero .name span{display:block;will-change:transform}
 .card3d{position:absolute;left:50%;bottom:0;width:min(380px,70vw,46vh);aspect-ratio:400/470;perspective:1400px;transform:translateX(-50%)}
 .card3d .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
@@ -66,7 +66,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 #layers .head{position:absolute;top:13vh;left:0;right:0;text-align:center;padding:0 20px}
 #layers .head h2{margin:0;font-size:clamp(44px,6vw,80px);line-height:.95;font-weight:700}
 #layers .head p{margin:14px auto 0;max-width:520px;opacity:.8;font-size:17px;line-height:1.5}
-.stack{position:absolute;left:50%;top:67%;width:min(380px,62vw);height:min(380px,62vw);transform:translate(-50%,-50%)}
+.stack{position:absolute;z-index:1;left:50%;top:67%;width:min(380px,62vw);height:min(380px,62vw);transform:translate(-50%,-50%)}
 .slab{position:absolute;inset:0;border-radius:28px;transform-origin:center;will-change:transform;display:flex;align-items:center;justify-content:center}
 .slab .face2{position:absolute;inset:0;border-radius:28px}
 .s1 .face2{background:#2B3C86;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
@@ -74,7 +74,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 .s3 .face2{background:var(--pop)}
 .slab .glyph{position:relative;font-size:clamp(28px,4vw,46px);font-weight:700;letter-spacing:.02em}
 .s3 .glyph{color:var(--ink)}
-.note{position:absolute;width:min(300px,38vw);opacity:0;will-change:transform,opacity}
+.note{position:absolute;z-index:5;width:min(300px,38vw);opacity:0;will-change:transform,opacity}
 .note b{display:block;font-size:clamp(28px,3vw,40px);line-height:1;font-weight:700}
 .note span{display:block;margin-top:6px;font-size:15px;line-height:1.45;opacity:.85}
 .n1{left:6vw;top:72%}.n2{right:6vw;top:56%;text-align:right}.n3{left:6vw;top:40%}
@@ -138,7 +138,20 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   .top nav a:not(.pill){display:none}
   .bar .who{display:none}
   .stats{grid-template-columns:1fr;gap:6vh}.stats>div{border-left:0}
-  .note{width:42vw}.note span{font-size:13px}
+  .note{width:auto;left:24px!important;right:24px!important;text-align:left!important;display:flex;align-items:baseline;gap:12px}
+  .note b{font-size:24px;min-width:118px;flex:none}.note span{margin:0;font-size:14px}
+  .n3{top:64%!important}.n2{top:71.5%!important}.n1{top:79%!important}
+  #layers .head{top:12vh}#layers .head h2{font-size:38px}#layers .head p{display:none}
+  .stack{top:43%;width:min(230px,58vw);height:min(230px,58vw)}
+  .slab .glyph{font-size:24px}
+  .card3d{bottom:104px;width:min(300px,74vw,38vh)}
+  #hero .name{font-size:19vw}
+  .face.back{padding:0 22px 26px}
+  .face.back .k{font-size:12px}
+  .face.back h2{font-size:38px}
+  .face.back p{font-size:14px;margin-top:10px}
+  .face.back ul{margin-top:12px;gap:5px}.face.back li{font-size:12px;padding:3px 10px}
+  #hero .tag{top:14vh}
   .slots{grid-template-columns:1fr;gap:4px;transform:translateY(-62%)}.slot{--lh:clamp(64px,17vw,110px)}.names .col div{font-size:13vw}.role{grid-column:1}.role .col div{font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -297,12 +310,12 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
     const tilt=ease(seg(p,0,.25));
     const spread=ease(seg(p,.15,.65));
     slabs.forEach((el,i)=>{
-      const off=(1-i)*spread*min(innerHeight*.14,130);
+      const off=(1-i)*spread*(innerWidth<760?Math.min(innerHeight*.085,70):Math.min(innerHeight*.14,130));
       el.style.transform=`translateY(${off}px) rotateX(${tilt*58}deg) rotateZ(${tilt*-38}deg)`;
     });
     notes.forEach((n,i)=>{
       const t=ease(seg(p,.3+i*.12,.45+i*.12));
-      n.style.opacity=t;n.style.transform=`translateY(${(1-t)*24}px)`;
+      n.style.opacity=t;n.style.transform=`translate3d(0,${(1-t)*24}px,200px)`;
     });
 
     // 4 projects: the one closest to the middle lights up
