@@ -45,6 +45,7 @@
         { "@type": "CollegeOrUniversity", "name": "Universidade Anhembi Morumbi" }
       ],
       "knowsAbout": ["Engenharia de dados", "Analytics engineering", "SQL", "Python", "PySpark", "dbt", "Airflow", "BigQuery", "Google Cloud", "AWS", "Modelagem dimensional", "ETL"],
+      "email": "mailto:me@vitorpaes.dev",
       "sameAs": ["https://www.linkedin.com/in/vitor-paes/", "https://github.com/VitorPaes"]
     }
   }
@@ -97,11 +98,12 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 #hero .label{position:absolute;top:14vh;left:0;right:0;text-align:center;font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.06em}
 #hero .name{position:absolute;top:15vh;left:0;right:0;text-align:center;font-weight:700;font-size:clamp(110px,21vw,330px);line-height:.84;letter-spacing:-.005em;will-change:transform}
 #hero .name span{display:block;will-change:transform}
-.card3d{position:absolute;left:50%;bottom:0;width:min(380px,70vw,46vh);aspect-ratio:400/470;perspective:1400px;transform:translateX(-50%)}
+.card3d{position:absolute;left:50%;bottom:118px;width:min(360px,70vw,42vh);aspect-ratio:4/5;perspective:1400px;transform:translateX(-50%)}
+.card3d::before{content:"";position:absolute;inset:0;transform:translate(18px,-18px);border:2px solid var(--hi);border-radius:28px;opacity:.9}
 .card3d .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:999px 999px 0 0;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.35)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:28px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.35)}
 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
-.face.back{transform:rotateY(180deg);background:var(--pop);color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:0 34px 40px}
+.face.back{transform:rotateY(180deg);background:var(--pop);color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 34px}
 .face.back .k{font-size:15px;font-weight:600;letter-spacing:.06em;margin:0 0 6px}
 .face.back h2{color:var(--bg);margin:0;font-size:clamp(40px,4.4vw,58px);line-height:.88;font-weight:700}
 .face.back p{margin:16px 0 0;font-size:16px;line-height:1.5}
@@ -200,8 +202,13 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 /* 6. end */
 #end{height:200vh;background:#fff;color:var(--ink)}
 #end .stick{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
-#end h2{margin:0;font-size:clamp(90px,15vw,230px);line-height:.84;font-weight:700;will-change:transform}
+#end h2{margin:0;font-size:clamp(64px,15vw,230px);line-height:.84;font-weight:700;will-change:transform}
 #end h2 i{font-style:normal;color:var(--bg)}
+.mail{margin-top:5vh;font-size:clamp(26px,3.4vw,44px);font-weight:700;letter-spacing:-.03em;color:var(--bg);border-bottom:3px solid currentColor;line-height:1.2}
+.mail:hover{color:var(--ink)}
+.copy{margin-top:14px;background:none;border:0;color:var(--ink);font:600 15px 'Inter Tight',sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer;opacity:.75;min-height:44px}
+.copy:hover{opacity:1}
+.links{margin-top:3vh}
 .links{display:flex;gap:12px;margin-top:6vh;flex-wrap:wrap;justify-content:center}
 .links a{border:2px solid var(--ink);border-radius:999px;padding:11px 30px;font-size:21px;font-weight:700}
 .links a.main{background:var(--bg);border-color:var(--bg);color:#fff}
@@ -218,7 +225,9 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   #layers .head{top:12vh}#layers .head h2{font-size:38px}#layers .head p{display:none}
   .stack{top:43%;width:min(230px,58vw);height:min(230px,58vw)}
   .slab .glyph{font-size:24px}
-  .card3d{bottom:104px;width:min(300px,74vw,38vh)}
+  .card3d{bottom:104px;width:min(280px,72vw,36vh)}
+  .card3d::before{transform:translate(10px,-10px);border-radius:22px}
+  .face{border-radius:22px}
   #hero .name{font-size:19vw}
   .face.back{padding:0 22px 26px}
   .face.back .k{font-size:12px}
@@ -226,6 +235,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   .face.back p{font-size:14px;margin-top:10px}
   .face.back ul{margin-top:12px;gap:5px}.face.back li{font-size:12px;padding:3px 10px}
   #hero .tag{top:14vh}
+  #end h2{font-size:19vw}
   .slots{grid-template-columns:1fr;gap:4px;transform:translateY(-62%)}.slot{--lh:clamp(64px,17vw,110px)}.names .col div{font-size:13vw}.role{grid-column:1}.role .col div{font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -363,6 +373,8 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   <section id="end" class="scene" data-scene>
     <div class="stick">
       <h2 class="cond">Vamos<br>conversar<i>.</i></h2>
+      <a class="mail" href="mailto:me@vitorpaes.dev">me@vitorpaes.dev</a>
+      <button class="copy" type="button" data-copy="me@vitorpaes.dev">Copiar e-mail</button>
       <div class="links cond">
         <a class="main" href="https://www.linkedin.com/in/vitor-paes/">LinkedIn</a>
         <a href="https://github.com/VitorPaes">GitHub</a>
@@ -414,7 +426,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
     label.style.opacity=1-seg(p,.1,.3);
     const lift=ease(seg(p,.05,.4));
     const flip=ease(seg(p,.4,.8));
-    cardWrap.style.transform=`translateX(-50%) translateY(${-lift*6}vh) scale(${1+lift*.06})`;
+    cardWrap.style.transform=`translateX(-50%) scale(${1+lift*.05})`;
     card.style.transform=`rotateY(${flip*180}deg) rotateZ(${Math.sin(flip*Math.PI)*-6}deg)`;
     tag.style.opacity=seg(p,.82,.95);
     tag.style.transform=`translateY(${(1-seg(p,.82,.95))*30}px)`;
@@ -489,6 +501,9 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 
   // project panels
   projs.forEach(el=>{const b=el.querySelector('.proj-head');b.addEventListener('click',()=>{const o=el.classList.toggle('open');b.setAttribute('aria-expanded',o);onScroll()})});
+
+  // copy e-mail
+  const cp=$('.copy');cp&&cp.addEventListener('click',async()=>{const t=cp.dataset.copy;try{await navigator.clipboard.writeText(t);cp.textContent='Copiado!'}catch(e){cp.textContent=t}setTimeout(()=>cp.textContent='Copiar e-mail',2200)});
 
   let queued=false;
   function onScroll(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;frame();ui()})}
