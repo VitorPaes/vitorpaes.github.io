@@ -1,20 +1,44 @@
-<!doctype html>
-<html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1A3BC4">
   <title>Página não encontrada — Vitor Paes</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=personal-6">
-</head><body>
-<header class="header shell"><a class="brand" href="/" aria-label="Vitor Paes, início">vitor paes<span>.</span></a></header>
-<main class="shell notfound">
-  <p class="section-index">404 / NÃO ENCONTRADA</p>
-  <h1>Esse dado não<br>está aqui<span style="color:var(--blue)">.</span></h1>
-  <p>O endereço pode ter mudado ou não existe mais. O resto do site continua no lugar.</p>
-  <a class="cover-action" href="/">Voltar ao início <span aria-hidden="true">↑</span></a>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter+Tight:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A3BC4;--deep:#0E1A4D;--pop:#F7F7F2;--hi:#A9BBFF;--ink:#0E1A4D}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--bg);color:#fff;font-family:"Inter Tight",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--hi);outline-offset:4px}
+.cond{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase}
+header{padding:22px clamp(18px,3vw,40px)}
+.brand{font-size:26px;font-weight:750;letter-spacing:-.06em}
+.brand span{color:var(--hi)}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4vh 20px 12vh}
+.k{margin:0;font-size:20px;font-weight:600;letter-spacing:.06em;color:var(--hi)}
+h1{margin:3vh 0 0;font-size:clamp(64px,13vw,200px);line-height:.98;font-weight:700}
+h1 i{font-style:normal;color:var(--hi)}
+main p.txt{margin:4vh 0 0;max-width:460px;font-size:17px;line-height:1.5;opacity:.85}
+.cta{margin-top:5vh;background:var(--pop);color:var(--ink);border-radius:999px;padding:11px 30px;font-size:20px;font-weight:700;letter-spacing:.02em;transition:transform .2s}
+.cta:hover{transform:scale(1.05)}
+@media (prefers-reduced-motion:reduce){.cta{transition:none}.cta:hover{transform:none}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/" aria-label="Vitor Paes, início">vitor paes<span>.</span></a></header>
+<main>
+  <p class="k cond">404 · Página não encontrada</p>
+  <h1 class="cond">Esse dado não<br>está aqui<i>.</i></h1>
+  <p class="txt">O endereço pode ter mudado ou não existe mais. O resto do site continua no lugar.</p>
+  <a class="cta cond" href="/">Voltar ao início</a>
 </main>
-</body></html>
+</body>
+</html>

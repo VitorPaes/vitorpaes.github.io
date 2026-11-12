@@ -57,14 +57,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter+Tight:wght@400..800&display=swap" rel="stylesheet">
+<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("rm")</script>
 <style>
-:root{--bg:#1A3BC4;--deep:#0E1A4D;--pop:#F7F7F2;--hi:#A9BBFF;--white:#fff;--ink:#0E1A4D}
+:root{--bg:#1A3BC4;--deep:#0E1A4D;--pop:#F7F7F2;--hi:#A9BBFF;--white:#fff;--ink:#0E1A4D;--cw:min(360px,70vw,42vh)}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--bg);color:var(--white);font-family:"Inter Tight",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .cond{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hi);outline-offset:4px}
+body.light a:focus-visible,body.light button:focus-visible{outline-color:var(--bg)}
 
 /* header + bottom bar */
 .top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,3vw,40px);pointer-events:none}
@@ -72,22 +75,25 @@ a{color:inherit;text-decoration:none}
 .top{transition:background .3s,backdrop-filter .3s}.top.solid{background:rgba(14,26,77,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}body.light .top.solid{background:rgba(255,255,255,.88)}
 .brand{font-size:26px;font-weight:750;letter-spacing:-.06em}
 .brand span{color:var(--hi)}
-.top nav{display:flex;gap:22px;align-items:center;font-size:17px;font-weight:600;letter-spacing:.02em}
-.top nav a.pill{background:var(--white);color:var(--bg);border-radius:999px;padding:8px 20px}
+.top nav{display:flex;gap:2px;align-items:center;font-size:17px;font-weight:600;letter-spacing:.02em}
+.top nav a{border-radius:999px;padding:8px 16px;transition:background .25s,color .25s}
+.top nav a.on{background:var(--white);color:var(--bg)}
 .bar{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,3vw,40px) 20px;pointer-events:none}
 .bar>*{pointer-events:auto}
 .bar .who p{margin:0;line-height:1.3}
 .bar .who small{font-size:13px;opacity:.8}
 .bar .who strong{display:block;font-size:22px;letter-spacing:-.03em}
-.dots{display:flex;gap:10px}
-.dots button{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:transparent;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.dots{display:flex;gap:10px;padding:9px 12px;border-radius:999px;background:rgba(14,26,77,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s}
+.dots button{position:relative;width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:transparent;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.dots button::after{content:"";position:absolute;inset:-9px -6px}
 .dots button.on{background:var(--white);transform:scale(1.15)}
-.cta{background:var(--pop);color:var(--ink);border-radius:999px;padding:11px 30px;font-size:20px;font-weight:700;letter-spacing:.02em;transition:transform .2s}
+.cta{background:var(--pop);color:var(--ink);border-radius:999px;padding:11px 30px;font-size:20px;font-weight:700;letter-spacing:.02em;transition:transform .2s,opacity .3s,visibility .3s}
 .cta:hover{transform:scale(1.05)}
-body.light .cta{background:var(--bg);color:#fff}body.light .bar .who,body.light .dots button{color:var(--ink);border-color:var(--ink)}
+body.light .cta{opacity:0;visibility:hidden;pointer-events:none}body.light .bar .who,body.light .dots button{color:var(--ink);border-color:var(--ink)}
+body.light .dots{background:rgba(255,255,255,.85)}
 body.light .dots button.on{background:var(--ink)}
 body.light .top{color:var(--ink)}
-body.light .top nav a.pill{background:var(--ink);color:#fff}
+body.light .top nav a.on{background:var(--ink);color:#fff}
 
 /* scenes */
 .scene{position:relative}
@@ -98,10 +104,11 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 #hero .label{position:absolute;top:14vh;left:0;right:0;text-align:center;font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.06em}
 #hero .name{position:absolute;top:15vh;left:0;right:0;text-align:center;font-weight:700;font-size:clamp(110px,21vw,330px);line-height:.84;letter-spacing:-.005em;will-change:transform}
 #hero .name span{display:block;will-change:transform}
-.card3d{position:absolute;left:50%;bottom:118px;width:min(360px,70vw,42vh);aspect-ratio:4/5;perspective:1400px;transform:translateX(-50%)}
+.card3d{position:absolute;left:50%;bottom:118px;width:var(--cw);aspect-ratio:4/5;perspective:1400px;transform:translateX(-50%)}
 .card3d::before{content:"";position:absolute;inset:0;transform:translate(18px,-18px);border:2px solid var(--hi);border-radius:28px;opacity:.9}
 .card3d .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:28px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.35)}
+.face picture{display:block;width:100%;height:100%}
 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
 .face.back{transform:rotateY(180deg);background:var(--pop);color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 34px}
 .face.back .k{font-size:15px;font-weight:600;letter-spacing:.06em;margin:0 0 6px}
@@ -110,6 +117,11 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 .face.back ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .face.back li{border:1.5px solid var(--ink);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
 #hero .tag{position:absolute;left:0;right:0;top:15vh;text-align:center;font-size:clamp(34px,5vw,64px);font-weight:700;opacity:0}
+@media (min-width:761px){
+  #hero .name{top:auto;bottom:118px;margin:0;height:calc(var(--cw)*1.25);display:grid;grid-template-columns:1fr var(--cw) 1fr;align-items:center;font-size:min(calc((100vw - var(--cw))*.185),calc(var(--cw)*.85),330px)}
+  #hero .name .l1{grid-column:1;text-align:right;padding-right:clamp(30px,3.6vw,68px)}
+  #hero .name .l2{grid-column:3;text-align:left;padding-left:clamp(30px,3.6vw,68px)}
+}
 
 /* 2. layers */
 #layers{height:210vh;background:var(--deep)}
@@ -145,8 +157,6 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 .steps{position:absolute;bottom:130px;left:0;right:0;display:flex;justify-content:center;gap:10px}
 .steps i{width:46px;height:3px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;position:relative}
 .steps i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
 
 /* 4. projects */
 #projects{padding:12vh 20px 14vh;text-align:center}
@@ -213,19 +223,20 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 .links a{border:2px solid var(--ink);border-radius:999px;padding:11px 30px;font-size:21px;font-weight:700}
 .links a.main{background:var(--bg);border-color:var(--bg);color:#fff}
 
-.hint{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-size:14px;opacity:.8}
 
 @media (max-width:760px){
   .top nav a:not(.pill){display:none}
+  .top nav a.pill{background:var(--white);color:var(--bg);padding:8px 20px}
+  body.light .top nav a.pill{background:var(--ink);color:#fff}
+  :root{--cw:min(280px,72vw,36vh)}
   .bar .who{display:none}
-  .stats{grid-template-columns:1fr;gap:6vh}.stats>div{border-left:0}
   .note{width:auto;left:24px!important;right:24px!important;text-align:left!important;display:flex;align-items:baseline;gap:12px}
   .note b{font-size:24px;min-width:118px;flex:none}.note span{margin:0;font-size:14px}
   .n3{top:64%!important}.n2{top:71.5%!important}.n1{top:79%!important}
   #layers .head{top:12vh}#layers .head h2{font-size:38px}#layers .head p{display:none}
   .stack{top:43%;width:min(230px,58vw);height:min(230px,58vw)}
   .slab .glyph{font-size:24px}
-  .card3d{bottom:104px;width:min(280px,72vw,36vh)}
+  .card3d{bottom:104px}
   .card3d::before{transform:translate(10px,-10px);border-radius:22px}
   .face{border-radius:22px}
   #hero .name{font-size:19vw}
@@ -238,11 +249,45 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   #end h2{font-size:19vw}
   .slots{grid-template-columns:1fr;gap:4px;transform:translateY(-62%)}.slot{--lh:clamp(64px,17vw,110px)}.names .col div{font-size:13vw}.role{grid-column:1}.role .col div{font-size:15px}
 }
-@media (prefers-reduced-motion:reduce){
-  #hero,#layers,#path,#end{height:auto}
-  .stick{position:relative;height:auto;min-height:100vh}
-  .reveal{opacity:1;transform:none;transition:none}
-}
+/* path as a plain list: read by screen readers always, shown when motion is reduced */
+.plist{list-style:none;margin:0 auto;padding:0;max-width:900px}
+.plist li{display:grid;grid-template-columns:auto 1fr;column-gap:clamp(16px,3vw,40px);align-items:baseline;padding:18px 0;border-top:1px solid rgba(255,255,255,.18)}
+.plist b,.plist strong{font-size:clamp(34px,5vw,60px);font-weight:700;line-height:1}
+.plist b{color:var(--hi);font-variant-numeric:tabular-nums}
+.plist span{grid-column:2;margin-top:6px;font:400 17px/1.4 "Inter Tight",Arial,sans-serif;text-transform:none;opacity:.85}
+
+/* reduced motion (html.rm): no scroll-driven scenes, everything laid out and visible */
+.rm .scene{height:auto!important}
+.rm .stick{position:relative;height:auto;overflow:visible}
+.rm *{transition:none!important}
+.rm #hero .stick{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:120px 20px 110px}
+.rm #hero .label,.rm #hero .name,.rm #hero .tag{position:static;opacity:1}
+.rm #hero .name{display:block;height:auto;margin:0;font-size:clamp(64px,13vw,170px)}
+.rm #hero .name span{display:inline-block;padding:0 .1em}
+.rm #hero .tag{font-size:clamp(26px,3.4vw,44px);color:var(--hi)}
+.rm .card3d{position:static;transform:none;width:min(760px,100%);aspect-ratio:auto;perspective:none;margin-top:16px}
+.rm .card3d::before{display:none}
+.rm .card3d .inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;height:auto;transform-style:flat}
+.rm .face{position:relative;inset:auto;box-shadow:none}
+.rm .face.front{aspect-ratio:4/5}
+.rm .face.back{transform:none;justify-content:center;padding:32px}
+.rm #layers .stick{display:flex;flex-direction:column;align-items:center;padding:14vh 20px}
+.rm #layers .head{position:static;padding:0;margin-bottom:5vh}
+.rm #layers .head p{display:block}
+.rm .stack{display:none}
+.rm .note{position:static;display:block;opacity:1;width:min(560px,100%);text-align:left;padding:18px 0;border-top:1px solid rgba(255,255,255,.18)}
+.rm .note b{font-size:clamp(28px,3vw,40px)}.rm .note span{margin-top:6px;font-size:15px}
+.rm #numbers .stick{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:48px 24px;max-width:1100px;margin:0 auto;padding:14vh 20px}
+.rm #numbers .k{position:static;flex:0 0 100%;padding:0;margin:0}
+.rm .stat{position:static;opacity:1;flex:0 1 300px;justify-content:flex-start}
+.rm .ring{margin-top:0;width:min(220px,60vw)}
+.rm .ring .val{font-size:84px}
+.rm .stat .chip{opacity:1}
+.rm .steps,.rm .slots,.rm .line{display:none}
+.rm #path .stick{padding:14vh clamp(20px,6vw,90px)}
+.rm #path .k{position:static;margin:0 0 6vh}
+.rm .plist{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+.rm #end .stick{min-height:100vh;padding:120px 20px}
 </style>
 </head>
 <body>
@@ -263,9 +308,9 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
       <p class="label cond">Engenheiro de dados</p>
       <h1 class="name cond"><span class="l1">Vitor</span><span class="l2">Paes</span></h1>
       <p class="tag cond">Dados com contexto.</p>
-      <div class="card3d" aria-hidden="false">
+      <div class="card3d">
         <div class="inner">
-          <div class="face front"><img src="./vitor-paes.jpg?v=2" width="920" height="920" fetchpriority="high" alt="Foto de Vitor Paes"></div>
+          <div class="face front"><picture><source srcset="./vitor-paes.webp?v=2" type="image/webp"><img src="./vitor-paes.jpg?v=2" width="920" height="920" fetchpriority="high" alt="Foto de Vitor Paes"></picture></div>
           <div class="face back">
             <p class="k cond">Hoje no Mercado Livre</p>
             <h2 class="cond">Data<br>Engineer</h2>
@@ -299,8 +344,8 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   <section id="numbers" class="scene" data-scene>
     <div class="stick">
       <p class="k cond">E-commerce, finanças e saúde.</p>
-      <div class="stat" data-to="8"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>0</span><small>anos</small></div></div><p>trabalhando com dados, desde o estágio na Optum em 2018</p></div>
-      <div class="stat" data-to="6"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>0</span><small>empresas</small></div></div><p>de consultoria a banco, varejo, meios de pagamento e marketplace</p></div>
+      <div class="stat" data-to="8"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>8</span><small>anos</small></div></div><p>trabalhando com dados, desde o estágio na Optum em 2018</p></div>
+      <div class="stat" data-to="6"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>6</span><small>empresas</small></div></div><p>de consultoria a banco, varejo, meios de pagamento e marketplace</p></div>
       <div class="stat" data-to="mba"><div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="bgc" cx="100" cy="100" r="94"/><circle class="fg" cx="100" cy="100" r="94"/></svg><div class="val cond"><span>MBA</span></div></div><p>em Engenharia de Dados pela Universidade Presbiteriana Mackenzie</p><span class="chip cond">Concluído em 2026</span></div>
       <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
     </div>
@@ -360,7 +405,16 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   <section id="path" class="scene" data-scene>
     <div class="stick">
       <p class="k cond">Trajetória</p>
-      <div class="slots cond">
+      <!-- Mesma trajetória em dois formatos: a lista abaixo (leitores de tela e movimento reduzido) e o letreiro animado. Ao editar, altere os dois. -->
+      <ol class="plist sr cond">
+        <li><b>2018</b><strong>Optum</strong><span>Data Analytics Intern · saúde</span></li>
+        <li><b>2019</b><strong>NTT Data</strong><span>Junior Data Engineer · consultoria</span></li>
+        <li><b>2020</b><strong>Itaú</strong><span>Data Engineer · banco</span></li>
+        <li><b>2022</b><strong>Magalu</strong><span>Analytics Engineer · varejo</span></li>
+        <li><b>2024</b><strong>Cielo</strong><span>Data Engineer · meios de pagamento</span></li>
+        <li><b>2024</b><strong>Mercado Livre</strong><span>Data Engineer · marketplace, hoje</span></li>
+      </ol>
+      <div class="slots cond" aria-hidden="true">
         <div class="slot years"><div class="col"><div>2018</div><div>2019</div><div>2020</div><div>2022</div><div>2024</div><div>2024</div></div></div>
         <div class="slot names"><div class="col"><div>Optum</div><div>NTT Data</div><div>Itaú</div><div>Magalu</div><div>Cielo</div><div>Mercado Livre</div></div></div>
         <div class="role" style="font-family:'Inter Tight';text-transform:none"><div class="col"><div>Data Analytics Intern · saúde</div><div>Junior Data Engineer · consultoria</div><div>Data Engineer · banco</div><div>Analytics Engineer · varejo</div><div>Data Engineer · meios de pagamento</div><div>Data Engineer · marketplace, hoje</div></div></div>
@@ -386,12 +440,12 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 
 <div class="bar">
   <div class="who"><p><small>Mercado Livre, desde 2024</small><strong>Data Engineer</strong></p></div>
-  <div class="dots" role="tablist" aria-label="Seções">
+  <nav class="dots" aria-label="Seções">
     <button data-go="hero" aria-label="Início"></button>
     <button data-go="layers" aria-label="Como trabalho"></button>
     <button data-go="projects" aria-label="Projetos"></button>
     <button data-go="path" aria-label="Trajetória"></button>
-  </div>
+  </nav>
   <a class="cta cond" href="#end">Vamos conversar</a>
 </div>
 
@@ -408,7 +462,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   const slabs=$$('.slab'),notes=[$('.n1'),$('.n2'),$('.n3')],head=$('#layers .head');
   const endH=$('#end h2');
   const stats=$$('.stat'),steps=$$('.steps b'),C=2*Math.PI*94;
-  stats.forEach(st=>{const f=st.querySelector('.fg');f.style.strokeDasharray=C;f.style.strokeDashoffset=C});
+  stats.forEach(st=>{const f=st.querySelector('.fg');f.style.strokeDasharray=C;f.style.strokeDashoffset=reduce?0:C});
   const N=6,yCol=$('.years .col'),nCol=$('.names .col'),rCol=$('.role .col'),line=$('.line'),fill=$('.line .fill');
   const labels=['2018','2019','2020','2022','2024','hoje'];
   for(let i=0;i<N;i++){const n=document.createElement('div');n.className='node';n.style.left=(i/(N-1)*100)+'%';n.innerHTML='<span>'+labels[i]+'</span>';line.appendChild(n)}
@@ -456,6 +510,7 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
 
     // 3 numbers: one stat per third, ring and value scrubbed by scroll
     p=prog($('#numbers'));
+    const nr=$('#numbers').getBoundingClientRect(),nIn=nr.top<innerHeight&&nr.bottom>0;
     stats.forEach((st,i)=>{
       const a=i/3,b=(i+1)/3,local=seg(p,a,b);
       const fadeIn=seg(p,a-.04,a+.06),fadeOut=i<2?1-seg(p,b-.06,b+.02):1;
@@ -465,7 +520,8 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
       const k=ease(seg(local,.05,.75));
       st.querySelector('.fg').style.strokeDashoffset=C*(1-k);
       const to=st.dataset.to;
-      if(to!=='mba') st.querySelector('.val span').textContent=Math.round(k*(+to));
+      // off-screen the real value stays in the DOM (crawlers, readers); it only counts up while visible
+      if(to!=='mba') st.querySelector('.val span').textContent=nIn&&vis>0?Math.round(k*(+to)):to;
       else st.querySelector('.chip').style.opacity=k>.98?1:0;
       steps[i].style.transform=`scaleX(${local})`;
     });
@@ -485,14 +541,17 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
     p=prog($('#end'));
     endH.style.transform=`scale(${.55+ease(seg(p,0,.6))*.45})`;
   }
-  function min(a,b){return Math.min(a,b)}
 
   // dots + light mode
   const ids=['hero','layers','projects','path'];
   const dots=$$('.dots button');
+  const navLinks=$$('.top nav a'),navFor={layers:'#layers',numbers:'#layers',projects:'#projects',path:'#path'};
+  const mark=(el,on)=>{el.classList.toggle('on',on);on?el.setAttribute('aria-current','true'):el.removeAttribute('aria-current')};
   function ui(){
     let cur=0;ids.forEach((id,i)=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<innerHeight*.5)cur=i});
-    dots.forEach((d,i)=>d.classList.toggle('on',i===cur));
+    dots.forEach((d,i)=>mark(d,i===cur));
+    let sec='hero';['layers','numbers','projects','path','end'].forEach(id=>{if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.5)sec=id});
+    navLinks.forEach(a=>mark(a,a.getAttribute('href')===navFor[sec]));
     $('.top').classList.toggle('solid',scrollY>innerHeight*.6);
     const er=$('#end').getBoundingClientRect();document.body.classList.toggle('light',er.top<innerHeight*.6);
   }
@@ -509,15 +568,6 @@ body.light .top nav a.pill{background:var(--ink);color:#fff}
   function onScroll(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;frame();ui()})}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
   onScroll();
-
-  // reveals + counters
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
-    const c=e.target.querySelector('[data-count]');
-    if(c){const to=+c.dataset.count;if(reduce){c.textContent=to;return}
-      const t0=performance.now();const step=t=>{const k=clamp((t-t0)/1200);c.textContent=Math.round(ease(k)*to);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
-  }),{threshold:.35});
-  $$('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 </body>
